@@ -85,12 +85,14 @@ jobs:
           pip install "Django~=${{ matrix.django-version }}.0"
           pip install "django-cms~=${{ matrix.cms-version }}.0"
           pip install "djangocms-form-builder>=0.4"
-          pip install django-countries>=7.0
-          pip install django-entangled>=0.5
+          pip install "django-countries>=7.0"
+          pip install "django-entangled>=0.5"
           pip install -e .
 
       - name: Run tests
         run: pytest tests -v
+        env:
+          PYTHONPATH: .
 
   coverage:
     runs-on: ubuntu-latest
@@ -110,12 +112,14 @@ jobs:
           pip install "Django>=4.2,<4.3"
           pip install "django-cms>=4.1,<4.2"
           pip install "djangocms-form-builder>=0.4"
-          pip install django-countries>=7.0
-          pip install django-entangled>=0.5
+          pip install "django-countries>=7.0"
+          pip install "django-entangled>=0.5"
           pip install -e .
 
       - name: Run tests with coverage
         run: pytest --cov=djangocms_form_builder_countries --cov-report=xml tests
+        env:
+          PYTHONPATH: .
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4

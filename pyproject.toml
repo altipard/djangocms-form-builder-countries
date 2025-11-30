@@ -71,7 +71,8 @@ where = ["."]
 include = ["djangocms_form_builder_countries*"]
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "settings"
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["."]
 python_files = ["test_*.py", "*_test.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]

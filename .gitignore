@@ -81,6 +81,9 @@ ipython_config.py
 # Environments
 .env
 .venv
+
+# Lock files (not needed for libraries)
+uv.lock
 env/
 venv/
 ENV/

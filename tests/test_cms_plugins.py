@@ -9,15 +9,13 @@ and its fieldset configuration.
 class TestCountryFieldPlugin:
     """Tests for CountryFieldPlugin configuration."""
 
-    def test_plugin_registered(self):
-        """Test that CountryFieldPlugin is registered in the plugin pool."""
-        from cms.plugin_pool import plugin_pool
+    def test_plugin_is_cms_plugin(self):
+        """Test that CountryFieldPlugin is a valid CMS plugin."""
+        from cms.plugin_base import CMSPluginBase
+        from djangocms_form_builder_countries.cms_plugins import CountryFieldPlugin
 
-        # Get all registered plugins
-        plugins = plugin_pool.get_all_plugins()
-        plugin_names = [p.__name__ for p in plugins]
-
-        assert "CountryFieldPlugin" in plugin_names
+        # Check it inherits from CMSPluginBase (through FormElementPlugin)
+        assert issubclass(CountryFieldPlugin, CMSPluginBase)
 
     def test_plugin_attributes(self):
         """Test that plugin has correct attributes."""

@@ -1,8 +1,7 @@
 """
 Django settings for testing djangocms-form-builder-countries.
 
-This module provides a minimal Django configuration for running tests
-without a full Django CMS installation.
+Minimal configuration for running tests.
 """
 
 SECRET_KEY = "test-secret-key-not-for-production"
@@ -27,9 +26,6 @@ INSTALLED_APPS = [
     "menus",
     "treebeard",
     "sekizai",
-    "filer",
-    "easy_thumbnails",
-    "djangocms_text",
     "djangocms_form_builder",
     "djangocms_form_builder_countries",
 ]

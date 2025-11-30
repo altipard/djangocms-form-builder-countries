@@ -1,39 +1,10 @@
 """
 Pytest configuration for djangocms-form-builder-countries tests.
 
-Configures Django settings and provides fixtures for testing
-Django CMS plugins without a full CMS installation.
+Provides fixtures for testing Django CMS plugins.
 """
 
-import os
-import sys
-
-import django
 import pytest
-
-
-def pytest_configure(config):
-    """Configure Django settings for tests."""
-    # Add the tests directory to the path so settings can be found
-    tests_dir = os.path.dirname(os.path.abspath(__file__))
-    if tests_dir not in sys.path:
-        sys.path.insert(0, tests_dir)
-
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
-
-    # Setup Django
-    django.setup()
-
-
-@pytest.fixture(scope="session")
-def django_db_setup():
-    """Set up test database."""
-    from django.conf import settings
-
-    settings.DATABASES["default"] = {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ":memory:",
-    }
 
 
 @pytest.fixture
