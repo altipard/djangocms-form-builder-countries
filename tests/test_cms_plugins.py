@@ -6,7 +6,6 @@ and its fieldset configuration.
 """
 
 
-
 class TestCountryFieldPlugin:
     """Tests for CountryFieldPlugin configuration."""
 
@@ -18,16 +17,16 @@ class TestCountryFieldPlugin:
         plugins = plugin_pool.get_all_plugins()
         plugin_names = [p.__name__ for p in plugins]
 
-        assert 'CountryFieldPlugin' in plugin_names
+        assert "CountryFieldPlugin" in plugin_names
 
     def test_plugin_attributes(self):
         """Test that plugin has correct attributes."""
         from djangocms_form_builder_countries.cms_plugins import CountryFieldPlugin
 
-        assert hasattr(CountryFieldPlugin, 'name')
-        assert hasattr(CountryFieldPlugin, 'module')
-        assert hasattr(CountryFieldPlugin, 'model')
-        assert hasattr(CountryFieldPlugin, 'form')
+        assert hasattr(CountryFieldPlugin, "name")
+        assert hasattr(CountryFieldPlugin, "module")
+        assert hasattr(CountryFieldPlugin, "model")
+        assert hasattr(CountryFieldPlugin, "form")
 
     def test_plugin_uses_country_field_model(self):
         """Test that plugin uses CountryField model."""
@@ -47,7 +46,7 @@ class TestCountryFieldPlugin:
         """Test that plugin has fieldsets configured."""
         from djangocms_form_builder_countries.cms_plugins import CountryFieldPlugin
 
-        assert hasattr(CountryFieldPlugin, 'fieldsets')
+        assert hasattr(CountryFieldPlugin, "fieldsets")
         assert len(CountryFieldPlugin.fieldsets) >= 1
 
     def test_fieldsets_include_countries_first(self):
@@ -57,28 +56,28 @@ class TestCountryFieldPlugin:
         # Flatten all fields from fieldsets
         all_fields = []
         for fieldset in CountryFieldPlugin.fieldsets:
-            fieldset_fields = fieldset[1].get('fields', [])
+            fieldset_fields = fieldset[1].get("fields", [])
             for field in fieldset_fields:
                 if isinstance(field, (list, tuple)):
                     all_fields.extend(field)
                 else:
                     all_fields.append(field)
 
-        assert 'countries_first' in all_fields
+        assert "countries_first" in all_fields
 
     def test_plugin_module_is_forms(self):
         """Test that plugin is categorized under Forms module."""
         from djangocms_form_builder_countries.cms_plugins import CountryFieldPlugin
 
         module = str(CountryFieldPlugin.module)
-        assert 'form' in module.lower()
+        assert "form" in module.lower()
 
     def test_plugin_name_is_country(self):
         """Test that plugin name indicates it's a country field."""
         from djangocms_form_builder_countries.cms_plugins import CountryFieldPlugin
 
         name = str(CountryFieldPlugin.name)
-        assert 'country' in name.lower()
+        assert "country" in name.lower()
 
 
 class TestAppConfiguration:
@@ -88,7 +87,7 @@ class TestAppConfiguration:
         """Test that app config has correct name."""
         from djangocms_form_builder_countries.apps import CountriesFieldConfig
 
-        assert CountriesFieldConfig.name == 'djangocms_form_builder_countries'
+        assert CountriesFieldConfig.name == "djangocms_form_builder_countries"
 
     def test_app_config_verbose_name(self):
         """Test that app config has a verbose name."""
@@ -105,7 +104,7 @@ class TestPackageMetadata:
         """Test that package version is defined."""
         import djangocms_form_builder_countries
 
-        assert hasattr(djangocms_form_builder_countries, '__version__')
+        assert hasattr(djangocms_form_builder_countries, "__version__")
         assert djangocms_form_builder_countries.__version__ is not None
 
     def test_version_format(self):
@@ -113,7 +112,7 @@ class TestPackageMetadata:
         import djangocms_form_builder_countries
 
         version = djangocms_form_builder_countries.__version__
-        parts = version.split('.')
+        parts = version.split(".")
 
         # Should have at least major.minor.patch
         assert len(parts) >= 3

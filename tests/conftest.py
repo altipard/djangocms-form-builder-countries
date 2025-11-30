@@ -19,19 +19,20 @@ def pytest_configure(config):
     if tests_dir not in sys.path:
         sys.path.insert(0, tests_dir)
 
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
     # Setup Django
     django.setup()
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def django_db_setup():
     """Set up test database."""
     from django.conf import settings
-    settings.DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
+
+    settings.DATABASES["default"] = {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ":memory:",
     }
 
 
@@ -39,26 +40,26 @@ def django_db_setup():
 def country_field_config():
     """Provide common country field configurations for tests."""
     return {
-        'default': {
-            'field_label': 'Country',
-            'field_name': 'country',
-            'field_required': False,
+        "default": {
+            "field_label": "Country",
+            "field_name": "country",
+            "field_required": False,
         },
-        'required': {
-            'field_label': 'Country',
-            'field_name': 'country',
-            'field_required': True,
+        "required": {
+            "field_label": "Country",
+            "field_name": "country",
+            "field_required": True,
         },
-        'with_priority': {
-            'field_label': 'Country',
-            'field_name': 'country',
-            'field_required': True,
-            'countries_first': ['DE', 'AT', 'CH'],
+        "with_priority": {
+            "field_label": "Country",
+            "field_name": "country",
+            "field_required": True,
+            "countries_first": ["DE", "AT", "CH"],
         },
-        'with_placeholder': {
-            'field_label': 'Country',
-            'field_name': 'country',
-            'field_required': False,
-            'field_placeholder': 'Please select your country',
+        "with_placeholder": {
+            "field_label": "Country",
+            "field_name": "country",
+            "field_required": False,
+            "field_placeholder": "Please select your country",
         },
     }

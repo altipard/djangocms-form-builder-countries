@@ -22,12 +22,17 @@ class CountryMultipleChoiceField(forms.MultipleChoiceField):
     """
 
     def __init__(self, *args, **kwargs):
-        kwargs.setdefault('choices', list(countries))
-        kwargs.setdefault('required', False)
-        kwargs.setdefault('widget', forms.SelectMultiple(attrs={
-            'class': 'form-select',
-            'size': '8',
-        }))
+        kwargs.setdefault("choices", list(countries))
+        kwargs.setdefault("required", False)
+        kwargs.setdefault(
+            "widget",
+            forms.SelectMultiple(
+                attrs={
+                    "class": "form-select",
+                    "size": "8",
+                }
+            ),
+        )
         super().__init__(*args, **kwargs)
 
 
@@ -42,8 +47,8 @@ class CountryFieldForm(FormFieldMixin, EntangledModelForm):
     class Meta:
         model = FormField
         entangled_fields = {
-            'config': [
-                'countries_first',
+            "config": [
+                "countries_first",
             ]
         }
 
@@ -58,8 +63,8 @@ class CountryFieldForm(FormFieldMixin, EntangledModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if 'instance' in kwargs and kwargs['instance']:
-            instance = kwargs['instance']
-            if hasattr(instance, 'config') and 'countries_first' not in instance.config:
+        if "instance" in kwargs and kwargs["instance"]:
+            instance = kwargs["instance"]
+            if hasattr(instance, "config") and "countries_first" not in instance.config:
                 # Default to DACH countries for new instances
-                self.fields['countries_first'].initial = ['DE', 'AT', 'CH']
+                self.fields["countries_first"].initial = ["DE", "AT", "CH"]

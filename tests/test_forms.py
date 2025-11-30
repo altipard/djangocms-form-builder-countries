@@ -37,14 +37,14 @@ class TestCountryMultipleChoiceField:
         field = CountryMultipleChoiceField()
 
         assert isinstance(field.widget, forms.SelectMultiple)
-        assert field.widget.attrs.get('class') == 'form-select'
-        assert field.widget.attrs.get('size') == '8'
+        assert field.widget.attrs.get("class") == "form-select"
+        assert field.widget.attrs.get("size") == "8"
 
     def test_custom_choices(self):
         """Test that custom choices can be provided."""
         from djangocms_form_builder_countries.forms import CountryMultipleChoiceField
 
-        custom_choices = [('DE', 'Germany'), ('AT', 'Austria')]
+        custom_choices = [("DE", "Germany"), ("AT", "Austria")]
         field = CountryMultipleChoiceField(choices=custom_choices)
 
         assert field.choices == custom_choices
@@ -64,12 +64,12 @@ class TestCountryMultipleChoiceField:
         field = CountryMultipleChoiceField()
 
         # Valid selection
-        cleaned = field.clean(['DE', 'AT'])
-        assert cleaned == ['DE', 'AT']
+        cleaned = field.clean(["DE", "AT"])
+        assert cleaned == ["DE", "AT"]
 
         # Invalid selection should raise ValidationError
         with pytest.raises(forms.ValidationError):
-            field.clean(['XX'])  # Invalid country code
+            field.clean(["XX"])  # Invalid country code
 
     def test_accepts_empty_selection(self):
         """Test that empty selection is valid when not required."""
@@ -90,7 +90,7 @@ class TestCountryFieldForm:
 
         form = CountryFieldForm()
 
-        assert 'countries_first' in form.fields
+        assert "countries_first" in form.fields
 
     def test_countries_first_is_multiple_choice(self):
         """Test that countries_first is a MultipleChoiceField."""
@@ -98,7 +98,7 @@ class TestCountryFieldForm:
 
         form = CountryFieldForm()
 
-        assert isinstance(form.fields['countries_first'], CountryMultipleChoiceField)
+        assert isinstance(form.fields["countries_first"], CountryMultipleChoiceField)
 
     def test_countries_first_not_required(self):
         """Test that countries_first is not required."""
@@ -106,7 +106,7 @@ class TestCountryFieldForm:
 
         form = CountryFieldForm()
 
-        assert form.fields['countries_first'].required is False
+        assert form.fields["countries_first"].required is False
 
     def test_countries_first_has_help_text(self):
         """Test that countries_first has appropriate help text."""
@@ -114,9 +114,9 @@ class TestCountryFieldForm:
 
         form = CountryFieldForm()
 
-        help_text = form.fields['countries_first'].help_text
-        assert 'countries' in help_text.lower()
-        assert 'DE' in help_text or 'Germany' in help_text
+        help_text = form.fields["countries_first"].help_text
+        assert "countries" in help_text.lower()
+        assert "DE" in help_text or "Germany" in help_text
 
     def test_countries_first_has_label(self):
         """Test that countries_first has a user-friendly label."""
@@ -124,5 +124,5 @@ class TestCountryFieldForm:
 
         form = CountryFieldForm()
 
-        label = str(form.fields['countries_first'].label)
-        assert 'first' in label.lower() or 'countries' in label.lower()
+        label = str(form.fields["countries_first"].label)
+        assert "first" in label.lower() or "countries" in label.lower()

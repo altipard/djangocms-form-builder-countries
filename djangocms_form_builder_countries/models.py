@@ -40,7 +40,7 @@ class CountryField(FormField):
         Returns:
             tuple: (field_name, ChoiceField) for form construction
         """
-        first_countries = self.config.get('countries_first', [])
+        first_countries = self.config.get("countries_first", [])
         choices = list(countries)
 
         if first_countries:
@@ -60,24 +60,24 @@ class CountryField(FormField):
 
             # Add separator between priority and remaining countries
             if first_choices:
-                choices = first_choices + [('', '---')] + remaining_choices
+                choices = first_choices + [("", "---")] + remaining_choices
             else:
                 choices = remaining_choices
 
-        required = self.config.get('field_required', False)
-        placeholder = self.config.get('field_placeholder', '')
+        required = self.config.get("field_required", False)
+        placeholder = self.config.get("field_placeholder", "")
 
         if not required:
             blank_label = placeholder if placeholder else _("Select a country")
-            choices = [('', blank_label)] + choices
+            choices = [("", blank_label)] + choices
 
         return self.field_name, forms.ChoiceField(
-            label=self.config.get('field_label', ''),
+            label=self.config.get("field_label", ""),
             required=required,
             choices=choices,
             widget=forms.Select(
                 attrs={
-                    'class': 'form-select',
+                    "class": "form-select",
                 }
             ),
         )
