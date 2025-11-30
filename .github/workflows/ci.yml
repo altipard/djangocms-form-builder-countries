@@ -84,7 +84,7 @@ jobs:
           pip install pytest pytest-django pytest-cov
           pip install "Django~=${{ matrix.django-version }}.0"
           pip install "django-cms~=${{ matrix.cms-version }}.0"
-          pip install djangocms-form-builder>=2.0
+          pip install "djangocms-form-builder>=0.4"
           pip install django-countries>=7.0
           pip install django-entangled>=0.5
           pip install -e .
@@ -109,7 +109,7 @@ jobs:
           pip install pytest pytest-django pytest-cov
           pip install "Django>=4.2,<4.3"
           pip install "django-cms>=4.1,<4.2"
-          pip install djangocms-form-builder>=2.0
+          pip install "djangocms-form-builder>=0.4"
           pip install django-countries>=7.0
           pip install django-entangled>=0.5
           pip install -e .

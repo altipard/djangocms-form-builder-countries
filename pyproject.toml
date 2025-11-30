@@ -46,7 +46,7 @@ keywords = [
 dependencies = [
     "Django>=4.2",
     "django-cms>=4.1",
-    "djangocms-form-builder>=2.0",
+    "djangocms-form-builder>=0.4",
     "django-countries>=7.0",
 ]
 
