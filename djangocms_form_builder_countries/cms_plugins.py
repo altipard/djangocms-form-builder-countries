@@ -7,14 +7,12 @@ making it available in the Form Builder structure board.
 
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext_lazy as _
-
-from djangocms_form_builder.cms_plugins.form_plugins import FormElementPlugin
-from djangocms_form_builder import settings as form_builder_settings
 from djangocms_form_builder import forms as form_builder_forms
+from djangocms_form_builder import settings as form_builder_settings
+from djangocms_form_builder.cms_plugins.form_plugins import FormElementPlugin
 
-from .models import CountryField
 from .forms import CountryFieldForm
-
+from .models import CountryField
 
 # Get mixin factory from form builder settings
 mixin_factory = form_builder_settings.get_renderer(form_builder_forms)

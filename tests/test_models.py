@@ -8,9 +8,9 @@ Tests the proxy model functionality including:
 - Placeholder handling
 """
 
-import pytest
+from unittest.mock import Mock
+
 from django import forms
-from unittest.mock import Mock, patch
 
 
 class TestCountryFieldModel:
@@ -143,7 +143,6 @@ class TestCountryFieldModel:
 
     def test_all_countries_present(self):
         """Test that all standard countries are present in choices."""
-        from django_countries import countries
 
         field = self.create_country_field({
             'field_label': 'Country',

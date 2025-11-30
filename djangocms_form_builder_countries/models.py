@@ -7,9 +7,8 @@ with the Django CMS Form Builder plugin system.
 
 from django import forms
 from django.utils.translation import gettext_lazy as _
-
-from djangocms_form_builder.models import FormField
 from django_countries import countries
+from djangocms_form_builder.models import FormField
 
 
 class CountryField(FormField):
@@ -47,7 +46,7 @@ class CountryField(FormField):
         if first_countries:
             first_choices = []
             remaining_choices = []
-            first_set = set(code.upper() for code in first_countries)
+            first_set = {code.upper() for code in first_countries}
 
             for code, name in choices:
                 if code in first_set:

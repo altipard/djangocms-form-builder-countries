@@ -5,7 +5,6 @@ Tests the CountryFieldPlugin registration with Django CMS
 and its fieldset configuration.
 """
 
-import pytest
 
 
 class TestCountryFieldPlugin:

@@ -7,11 +7,10 @@ for configuring country field options.
 
 from django import forms
 from django.utils.translation import gettext_lazy as _
-
-from djangocms_form_builder.models import FormField
-from djangocms_form_builder.forms import FormFieldMixin
-from entangled.forms import EntangledModelForm
 from django_countries import countries
+from djangocms_form_builder.forms import FormFieldMixin
+from djangocms_form_builder.models import FormField
+from entangled.forms import EntangledModelForm
 
 
 class CountryMultipleChoiceField(forms.MultipleChoiceField):
