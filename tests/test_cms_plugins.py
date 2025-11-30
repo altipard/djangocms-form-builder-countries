@@ -12,6 +12,7 @@ class TestCountryFieldPlugin:
     def test_plugin_is_cms_plugin(self):
         """Test that CountryFieldPlugin is a valid CMS plugin."""
         from cms.plugin_base import CMSPluginBase
+
         from djangocms_form_builder_countries.cms_plugins import CountryFieldPlugin
 
         # Check it inherits from CMSPluginBase (through FormElementPlugin)

@@ -87,6 +87,7 @@ jobs:
           pip install "djangocms-form-builder>=0.4"
           pip install "django-countries>=7.0"
           pip install "django-entangled>=0.5"
+          pip install "djangocms-text"
           pip install -e .
 
       - name: Run tests
@@ -114,6 +115,7 @@ jobs:
           pip install "djangocms-form-builder>=0.4"
           pip install "django-countries>=7.0"
           pip install "django-entangled>=0.5"
+          pip install "djangocms-text"
           pip install -e .
 
       - name: Run tests with coverage
