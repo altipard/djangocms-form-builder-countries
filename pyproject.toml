@@ -51,10 +51,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/daltiparmak/djangocms-form-builder-countries"
-Documentation = "https://github.com/daltiparmak/djangocms-form-builder-countries#readme"
-Repository = "https://github.com/daltiparmak/djangocms-form-builder-countries"
-Issues = "https://github.com/daltiparmak/djangocms-form-builder-countries/issues"
+Homepage = "https://github.com/altipard/djangocms-form-builder-countries"
+Documentation = "https://github.com/altipard/djangocms-form-builder-countries#readme"
+Repository = "https://github.com/altipard/djangocms-form-builder-countries"
+Issues = "https://github.com/altipard/djangocms-form-builder-countries/issues"
 
 [project.optional-dependencies]
 dev = [
